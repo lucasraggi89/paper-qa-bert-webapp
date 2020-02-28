@@ -1,0 +1,47 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+        <mat-card-content>
+          <div class="container" appDnd (fileDropped)="onFileDropped($event)">
+            <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.files)" />
+            <img src="assets/img/dnd/ic-upload-file.svg" alt="">
+            <h3>Drag and drop the paper pdf here</h3>
+            <h3>or</h3>
+            <label for="fileDropRef">Browse for pdf file</label>
+          </div>
+          <div class="files-list">
+            <div class="single-file" *ngFor="let file of files; let i = index">
+              <img src="assets/img/dnd/ic-file.svg" width="45px" alt="file">
+              <div class="info">
+                <h4 class="name">
+                  {{ file?.name }}
+                </h4>
+                <p class="size">
+                  {{ formatBytes(file?.size) }}
+                </p>
+                <app-progress [progress]="file?.progress"></app-progress>
+              </div>
+              <img src="assets/img/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
+            </div>
+          </div>
+          <button mat-stroked-button color="accent" class="btn-block"  (click)="onClickUpload()">Send</button>
+
+          <br><br>
+        <form #sentence = "ngForm" (ngSubmit) = "onClickAsk(sentence.value)" class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput type = "text" name = "text" placeholder="Question" ngModel>
+          </mat-form-field>
+          {{message}}
+          <mat-chip-list >
+            <mat-chip color="primary" selected *ngFor="let item of answers;">{{item}}</mat-chip>
+          </mat-chip-list>
+          <p></p>
+          <button mat-stroked-button color="accent" class="btn-block">Ask</button>
+        </form>
+        </mat-card-content>
+
+
+
+    </mat-card>
+
+  </div>
