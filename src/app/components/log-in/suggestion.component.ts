@@ -43,8 +43,14 @@ export class SuggestionComponent implements OnInit {
         "question": formData.text
       })
       .subscribe((val) => {
-        console.log(val['answer']);
-        this.message = val['answer'];
+        console.log(val['answer'][0]);
+        if(val['answer'][0] == ''){
+          this.message = 'i dont know how to answer that, can you ask another question?'
+        }
+        else{
+          this.message = val['answer'];
+        }
+
       });
   }
 
