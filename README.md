@@ -1,11 +1,19 @@
-# AngularMaterialLoginTemplate
+# Paper Question Answerer with Bert - Webapp
 
-Create login and registration UI (User Interface) template with Angular 8, Angular Flex Layout and Material design UI library.
-
-## Step by Step Written Article
-[Create Login UI Template with Angular 8 and Material Design](https://www.positronx.io/create-login-ui-template-with-angular-8-material-design/)
-
-## How to start project?
+## Como usar o projeto?
 - Git Clone Repo
 - Run `npm install`
 - Run `ng serve`
+
+## Com docker
+
+Para configurar a API para uso em desenvolvimento:
+- Tenha o Docker Desktop instalado
+- Nas configurações do docker, marque o opção 'Expose daemon...' e marque os seus discos como shared drives
+
+## Iniciar
+Para iniciar a API:
+`docker-compose up`
+
+
+
