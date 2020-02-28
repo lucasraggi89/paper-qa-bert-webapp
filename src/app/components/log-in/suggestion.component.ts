@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SuggestionComponent implements OnInit {
 
-  endpoint = 'http://0.0.0.0:5000/';
+  endpoint = 'http://localhost:5000/';
   answers: any = [];
   message = '';
   files: any[] = [];
@@ -44,8 +44,7 @@ export class SuggestionComponent implements OnInit {
       })
       .subscribe((val) => {
         console.log(val['answer']);
-        this.answers = val['answer'];
-        this.message = val['answer'][0];
+        this.message = val['answer'];
       });
   }
 

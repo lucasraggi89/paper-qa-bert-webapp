@@ -1,6 +1,7 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
     <mat-card class="box">
+        <mat-card-title class="title">Upload a paper pdf and ask a question about it!</mat-card-title>
         <mat-card-content>
           <div class="container" appDnd (fileDropped)="onFileDropped($event)">
             <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event.target.files)" />
@@ -24,17 +25,19 @@
               <img src="assets/img/dnd/ic-delete-file.svg" class="delete" width="20px" alt="file" (click)="deleteFile(i)">
             </div>
           </div>
-          <button mat-stroked-button color="accent" class="btn-block"  (click)="onClickUpload()">Send</button>
+          <button mat-stroked-button color="accent" class="btn-block"  (click)="onClickUpload()">Upload</button>
 
           <br><br>
         <form #sentence = "ngForm" (ngSubmit) = "onClickAsk(sentence.value)" class="example-form">
           <mat-form-field class="example-full-width">
             <input matInput type = "text" name = "text" placeholder="Question" ngModel>
           </mat-form-field>
-          {{message}}
-          <mat-chip-list >
-            <mat-chip color="primary" selected *ngFor="let item of answers;">{{item}}</mat-chip>
-          </mat-chip-list>
+          <mat-card *ngIf="!!message" class="mat-card">
+            <mat-card-title class="answer-title">Answer:</mat-card-title>
+            <mat-card-content class="answer">
+              {{message}}
+            </mat-card-content>
+          </mat-card>
           <p></p>
           <button mat-stroked-button color="accent" class="btn-block">Ask</button>
         </form>
