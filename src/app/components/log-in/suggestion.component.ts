@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SuggestionComponent implements OnInit {
 
-  endpoint = 'http://127.0.0.1:5000/';
+  endpoint = 'http://0.0.0.0:5000/';
   answers: any = [];
   message = '';
   files: any[] = [];
