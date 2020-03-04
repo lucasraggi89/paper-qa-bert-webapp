@@ -23,5 +23,9 @@ To configure the API for development use:
 to start the API:
 Run `docker-compose up`
 
+## Url
+The project will be in:
+`http://localhost:4200`
+
 
 
